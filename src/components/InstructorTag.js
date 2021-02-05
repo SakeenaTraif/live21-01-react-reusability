@@ -1,20 +1,16 @@
-import instructor from '../data';
-import "./App.css";
-import '../styles.js';
+import { Emoji, GoToGithub, Name, TagWrapper } from "./styles";
 
-const InstructorTag = () => {
-  instructor.map((instructor) => {
-    return <InstructorTag name={instructor.name} Emoji={instructor.Emoji} Github={instructor.Github} />;
-  });
-
-const InstDetailes = ({ instructor }) => 
-  <>
-  <TagWrapper onClick = {()  => window.open({Github})} >
-          <Name>{instructor.name}</Name>
-          <Emoji>{instructor.Emoji}</Emoji>
-          <GoToGithub>Go to GitHub</GoToGithub>
-
+const InstructorTag = ({github, name, emoji}) => {
+  // const instructor = props.instructor;
+  // const {name, Emoji, Github} = props; or  name=props.name;
+  return (
+    <TagWrapper onClick={() => window.open(`https://github.com/${github}`)}>
+    <Emoji>{emoji}</Emoji>
+    <Name>{name}</Name>
+    <GoToGithub>Go to GitHub</GoToGithub>
   </TagWrapper>
-  </>
+
+  );
+};
     
 export default InstructorTag;
